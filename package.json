@@ -12,12 +12,12 @@
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.16",
-    "prisma": "^3.13.0"
+    "prisma": "^3.14.0"
   },
   "dependencies": {
     "@fastify/cors": "^7.0.0",
     "@fastify/static": "^5.0.2",
-    "@prisma/client": "^3.13.0",
+    "@prisma/client": "^3.14.0",
     "fastify": "^3.29.0",
     "fastify-multer": "^2.0.2"
   }

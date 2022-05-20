@@ -1,20 +1,20 @@
 import fastify from "fastify";
 import * as carsController from "../controllers/carsController.js";
-// import multer from "fastify-multer";
-// import path from "path";
+import multer from "fastify-multer";
+import path from "path";
 
 
-// const storage = multer.diskStorage({
-//   destination: (req, reply, callback) => {
-//     callback(null, "public/images");
-//   },
-//   filename: (req, file, cb) => {
-//     const extension = path.extname(file.originalname);
-//     cb(null, file.originalname + "-" + Date.now() + extension);
-//   },
-// });
+const storage = multer.diskStorage({
+  destination: (req, reply, callback) => {
+    callback(null, "public/images");
+  },
+  filename: (req, file, callback) => {
+    const extension = path.extname(file.originalname);
+    callback(null, file.originalname + "-" + Date.now() + extension);
+  },
+});
 
-// const upload = multer({ storage });
+const upload = multer({ storage });
 
 const routes = [
   {
@@ -30,14 +30,16 @@ const routes = [
   },
   {
     method: "PUT",
-    url: "/cars",
+    url: "/cars/:id",
     handler: carsController.updateCar,
   },
-  // {
-  //   method: "DELETE",
-  //   url: "/cars",
-  //   handler: carsController.createCars,
-  // },
+  
+  {
+    method: "DELETE",
+    url: "/cars/:id",
+    handler: carsController.deleteCar,
+  }
+
 ];
 
 export default (fastify, _, next) => {

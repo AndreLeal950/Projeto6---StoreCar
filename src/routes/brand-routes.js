@@ -14,16 +14,17 @@ const routes = [
     url: "/brands",
     handler: brandsController.createBrands,
   },
-  // {
-  //   method: "PUT",
-  //   url: "/brands",
-  //   handler: brandsController.createBrand,
-  // },
-  // {
-  //   method: "DELETE",
-  //   url: "/brands",
-  //   handler: brandsController.createBrand,
-  // },
+  {
+    method: "PUT",
+    url: "/brands/:id",
+    handler: brandsController.updateBrand,
+  },
+
+  {
+    method: "DELETE",
+    url: "/brands/:id",
+    handler: brandsController.deleteBrand,
+  }
 ];
 
 export default (fastify, _, next) => {

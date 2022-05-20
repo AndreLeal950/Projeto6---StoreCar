@@ -16,7 +16,7 @@ model Car {
   year     String @db.VarChar(4)
   brand    Brand  @relation(fields: [brand_id], references: [id])
   brand_id Int
-  image    String @db.VarChar
+  cover    String @db.VarChar
 
 }
 
